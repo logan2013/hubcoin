@@ -2,7 +2,7 @@ package main
 
 import (
 	abci "github.com/tendermint/abci/types"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/types"
 	"github.com/tendermint/go-wire"
 )
 

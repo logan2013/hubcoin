@@ -4,8 +4,8 @@ import (
 	wire "github.com/tendermint/go-wire"
 	"github.com/urfave/cli"
 
-	"github.com/tendermint/basecoin/cmd/commands"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/cmd/commands"
+	"github.com/dragosroua/hubcoin/types"
 )
 
 //Called during CLI initialization
