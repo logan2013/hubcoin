@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	abci "github.com/tendermint/abci/types"
-	"github.com/tendermint/basecoin/testutils"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/testutils"
+	"github.com/dragosroua/hubcoin/types"
 	cmn "github.com/tendermint/go-common"
 	crypto "github.com/tendermint/go-crypto"
 	"github.com/tendermint/go-merkle"

@@ -2,7 +2,7 @@ package state
 
 import (
 	abci "github.com/tendermint/abci/types"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/types"
 	cmn "github.com/tendermint/go-common"
 	"github.com/tendermint/go-events"
 )

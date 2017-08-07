@@ -3,9 +3,9 @@ package tmsp_test
 import (
 	"testing"
 
-	"github.com/tendermint/basecoin/app"
-	"github.com/tendermint/basecoin/testutils"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/app"
+	"github.com/dragosroua/hubcoin/testutils"
+	"github.com/dragosroua/hubcoin/types"
 	cmn "github.com/tendermint/go-common"
 	"github.com/tendermint/go-wire"
 	eyescli "github.com/tendermint/merkleeyes/client"
@@ -24,7 +24,7 @@ func TestSendTx(t *testing.T) {
 	// Seed Basecoin with account
 	test1Acc := test1PrivAcc.Account
 	test1Acc.Balance = types.Coins{{"", 1000}}
-	t.Log(bcApp.SetOption("base/account", string(wire.JSONBytes(test1Acc))))
+	t.Log(bcApp.SetOption("hub/account", string(wire.JSONBytes(test1Acc))))
 
 	// Construct a SendTx signature
 	tx := &types.SendTx{
@@ -61,14 +61,14 @@ func TestSequence(t *testing.T) {
 	eyesCli := eyescli.NewLocalClient("", 0)
 	chainID := "test_chain_id"
 	bcApp := app.NewBasecoin(eyesCli)
-	bcApp.SetOption("base/chainID", chainID)
+	bcApp.SetOption("hub/chainID", chainID)
 	t.Log(bcApp.Info())
 
 	// Get the test account
 	test1PrivAcc := testutils.PrivAccountFromSecret("test1")
 	test1Acc := test1PrivAcc.Account
 	test1Acc.Balance = types.Coins{{"", 1 << 53}}
-	t.Log(bcApp.SetOption("base/account", string(wire.JSONBytes(test1Acc))))
+	t.Log(bcApp.SetOption("hub/account", string(wire.JSONBytes(test1Acc))))
 
 	sequence := int(1)
 	// Make a bunch of PrivAccounts

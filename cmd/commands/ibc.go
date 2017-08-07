@@ -16,7 +16,7 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 )
 
-// returns a new IBC plugin to be registered with Basecoin
+// returns a new IBC plugin to be registered with Hubcoin
 func NewIBCPlugin() *ibc.IBCPlugin {
 	return ibc.New()
 }

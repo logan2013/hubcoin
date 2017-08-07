@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/tendermint/basecoin/cmd/commands"
+	"github.com/dragosroua/hubcoin/cmd/commands"
 	"github.com/urfave/cli"
 )
 

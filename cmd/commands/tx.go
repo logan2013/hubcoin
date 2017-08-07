@@ -7,7 +7,7 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/tendermint/basecoin/types"
+	types "github.com/dragosroua/hubcoin/types"
 
 	cmn "github.com/tendermint/go-common"
 	client "github.com/tendermint/go-rpc/client"

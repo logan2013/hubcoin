@@ -1,4 +1,4 @@
-package: github.com/tendermint/basecoin
+package: github.com/dragosroua/hubcoin
 import:
 - package: github.com/tendermint/go-common
   version: develop

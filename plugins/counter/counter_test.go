@@ -5,20 +5,20 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	abci "github.com/tendermint/abci/types"
-	"github.com/tendermint/basecoin/app"
-	"github.com/tendermint/basecoin/testutils"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/app"
+	"github.com/dragosroua/hubcoin/testutils"
+	"github.com/dragosroua/hubcoin/types"
 	"github.com/tendermint/go-wire"
 	eyescli "github.com/tendermint/merkleeyes/client"
 )
 
 func TestCounterPlugin(t *testing.T) {
 
-	// Basecoin initialization
+	// Hubcoin initialization
 	eyesCli := eyescli.NewLocalClient("", 0)
 	chainID := "test_chain_id"
-	bcApp := app.NewBasecoin(eyesCli)
-	bcApp.SetOption("base/chainID", chainID)
+	bcApp := app.NewHubcoin(eyesCli)
+	bcApp.SetOption("hub/chainID", chainID)
 	t.Log(bcApp.Info())
 
 	// Add Counter plugin
@@ -31,7 +31,7 @@ func TestCounterPlugin(t *testing.T) {
 	// Seed Basecoin with account
 	test1Acc := test1PrivAcc.Account
 	test1Acc.Balance = types.Coins{{"", 1000}, {"gold", 1000}}
-	bcApp.SetOption("base/account", string(wire.JSONBytes(test1Acc)))
+	bcApp.SetOption("hub/account", string(wire.JSONBytes(test1Acc)))
 
 	// Deliver a CounterTx
 	DeliverCounterTx := func(gas int64, fee types.Coin, inputCoins types.Coins, inputSequence int, appFee types.Coins) abci.Result {

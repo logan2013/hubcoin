@@ -69,21 +69,21 @@ func cmdStart(c *cli.Context) error {
 		}
 	}
 
-	// Create Basecoin app
-	basecoinApp := app.NewBasecoin(eyesCli)
+	// Create Hubcoin app
+	hubcoinApp := app.NewHubcoin(eyesCli)
 
 	// register IBC plugn
-	basecoinApp.RegisterPlugin(NewIBCPlugin())
+	hubcoinApp.RegisterPlugin(NewIBCPlugin())
 
 	// register all other plugins
 	for _, p := range plugins {
-		basecoinApp.RegisterPlugin(p.newPlugin())
+		hubcoinApp.RegisterPlugin(p.newPlugin())
 	}
 
 	// If genesis file exists, set key-value options
 	genesisFile := path.Join(c.String("dir"), "genesis.json")
 	if _, err := os.Stat(genesisFile); err == nil {
-		err := basecoinApp.LoadGenesis(genesisFile)
+		err := hubcoinApp.LoadGenesis(genesisFile)
 		if err != nil {
 			return errors.New(cmn.Fmt("%+v", err))
 		}
@@ -92,9 +92,9 @@ func cmdStart(c *cli.Context) error {
 	}
 
 	if c.Bool("in-proc") {
-		startTendermint(c, basecoinApp)
+		startTendermint(c, hubcoinApp)
 	} else {
-		if err := startBasecoinABCI(c, basecoinApp); err != nil {
+		if err := startHubcoinABCI(c, hubcoinApp); err != nil {
 			return err
 		}
 	}
@@ -102,9 +102,9 @@ func cmdStart(c *cli.Context) error {
 	return nil
 }
 
-func startBasecoinABCI(c *cli.Context, basecoinApp *app.Basecoin) error {
+func startHubcoinABCI(c *cli.Context, hubcoinApp *app.Hubcoin) error {
 	// Start the ABCI listener
-	svr, err := server.NewServer(c.String("address"), "socket", basecoinApp)
+	svr, err := server.NewServer(c.String("address"), "socket", hubcoinApp)
 	if err != nil {
 		return errors.New("create listener: " + err.Error())
 	}
@@ -117,7 +117,7 @@ func startBasecoinABCI(c *cli.Context, basecoinApp *app.Basecoin) error {
 
 }
 
-func startTendermint(c *cli.Context, basecoinApp *app.Basecoin) {
+func startTendermint(c *cli.Context, hubcoinApp *app.Hubcoin) {
 	// Get configuration
 	config = tmcfg.GetConfig("")
 	// logger.SetLogLevel("notice") //config.GetString("log_level"))
@@ -127,7 +127,7 @@ func startTendermint(c *cli.Context, basecoinApp *app.Basecoin) {
 	// Create & start tendermint node
 	privValidatorFile := config.GetString("priv_validator_file")
 	privValidator := tmtypes.LoadOrGenPrivValidator(privValidatorFile)
-	n := node.NewNode(config, privValidator, proxy.NewLocalClientCreator(basecoinApp))
+	n := node.NewNode(config, privValidator, proxy.NewLocalClientCreator(hubcoinApp))
 
 	n.Start()
 

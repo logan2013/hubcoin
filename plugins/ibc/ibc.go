@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	abci "github.com/tendermint/abci/types"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/types"
 	cmn "github.com/tendermint/go-common"
 	merkle "github.com/tendermint/go-merkle"
 	"github.com/tendermint/go-wire"

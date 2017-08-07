@@ -6,9 +6,9 @@ import (
 	wire "github.com/tendermint/go-wire"
 	"github.com/urfave/cli"
 
-	"github.com/tendermint/basecoin/cmd/commands"
-	"github.com/tendermint/basecoin/plugins/counter"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosrouah/ubcoin/cmd/commands"
+	"github.com/dragosroua/hubcoin/plugins/counter"
+	"github.com/dragosroua/hubcoin/types"
 )
 
 func init() {

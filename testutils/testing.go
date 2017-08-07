@@ -2,7 +2,7 @@
 package testutils
 
 import (
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/types"
 	. "github.com/tendermint/go-common"
 	"github.com/tendermint/go-crypto"
 )

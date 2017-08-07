@@ -2,7 +2,7 @@ package state
 
 import (
 	abci "github.com/tendermint/abci/types"
-	"github.com/tendermint/basecoin/types"
+	"github.com/dragosroua/hubcoin/types"
 	. "github.com/tendermint/go-common"
 	"github.com/tendermint/go-wire"
 	eyes "github.com/tendermint/merkleeyes/client"
@@ -91,7 +91,7 @@ func (s *State) Commit() abci.Result {
 //----------------------------------------
 
 func AccountKey(addr []byte) []byte {
-	return append([]byte("base/a/"), addr...)
+	return append([]byte("hub/a/"), addr...)
 }
 
 func GetAccount(store types.KVStore, addr []byte) *types.Account {

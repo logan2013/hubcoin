@@ -1,11 +1,11 @@
 #! /bin/bash
 
-killall -9 basecoin tendermint
+killall -9 hubcoin tendermint
 TMROOT=./data/chain1/tendermint tendermint unsafe_reset_all
 TMROOT=./data/chain2/tendermint tendermint unsafe_reset_all
 
-rm -rf ./data/chain1/basecoin/merkleeyes.db
-rm -rf ./data/chain2/basecoin/merkleeyes.db
+rm -rf ./data/chain1/hubcoin/merkleeyes.db
+rm -rf ./data/chain2/hubcoin/merkleeyes.db
 
 rm ./*.log
 

@@ -9,7 +9,7 @@ import (
 	cmn "github.com/tendermint/go-common"
 )
 
-func (app *Basecoin) LoadGenesis(path string) error {
+func (app *Hubcoin) LoadGenesis(path string) error {
 	kvz, err := loadGenesis(path)
 	if err != nil {
 		return err
