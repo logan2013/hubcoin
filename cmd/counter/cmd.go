@@ -6,7 +6,7 @@ import (
 	wire "github.com/tendermint/go-wire"
 	"github.com/urfave/cli"
 
-	"github.com/dragosrouah/ubcoin/cmd/commands"
+	"github.com/dragosroua/hubcoin/cmd/commands"
 	"github.com/dragosroua/hubcoin/plugins/counter"
 	"github.com/dragosroua/hubcoin/types"
 )
